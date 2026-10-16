@@ -30,3 +30,9 @@ services:
       # Integrations stay in draft mode until real provider keys are supplied.
       - key: COMMS_FORCE_TEST_MODE
         value: "1"
+      # Firestore credentials for the boot-time pull and write-through push.
+      # The value is set manually in the dashboard (Environment page): either
+      # the service-account JSON inline or a path to it. sync:false tells the
+      # blueprint to leave that value alone on future syncs.
+      - key: FIREBASE_SERVICE_ACCOUNT
+        sync: false
