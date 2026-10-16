@@ -66,9 +66,11 @@ respects explicitly:
    npm run deploy:hosting
    ```
 
-   This runs `vite build` into `dist/`, then `firebase deploy --only hosting`.
-   Firebase Hosting writes back the real URL when the site is live; the custom
-   domain `quest-lite.web.app` is the default for project `quest-lite`.
+   This runs `vite build` into `dist/`, copies the result into `public/`
+   (`copy-assets.cjs` — the directory `firebase.json` actually serves), then
+   `firebase deploy --only hosting`. Firebase Hosting writes back the real URL
+   when the site is live; the custom domain `quest-lite.web.app` is the default
+   for project `quest-lite`.
 
 4. Tell the SPA where the API lives by building with the API origin:
 

@@ -16,7 +16,7 @@
     "db:reset": "tsx server/scripts/reset-db.ts",
     "db:seed": "tsx server/scripts/seed.ts",
     "deploy:build": "vite build",
-    "deploy:hosting": "npm run deploy:build && firebase deploy --only hosting",
+    "deploy:hosting": "npm run deploy:build && node copy-assets.cjs && firebase deploy --only hosting",
     "deploy:check": "node scripts/check-deploy.mjs"
   },
   "dependencies": {
