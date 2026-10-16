@@ -1,0 +1,22 @@
+node_modules/
+dist/
+data/
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+.env
+.env.local
+.DS_Store
+*.log
+coverage/
+.vite/
+# Service-account key for Firebase — never commit it. The API reads it from
+# FIREBASE_SERVICE_ACCOUNT or the local file; Render gets it as an env var.
+firebase-service-account.json
+# Firebase Hosting staging area, regenerated from dist/ by copy-assets.cjs.
+public/
+
+# Local one-off helper scripts — not part of the app.
+add-admin-user.cjs
+check-server.cjs

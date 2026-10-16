@@ -1,0 +1,32 @@
+# Render blueprint — free-tier API host for the split deployment.
+#
+# Firebase Hosting's Spark plan cannot run compute, so the Express API runs
+# here. The SPA on Firebase Hosting calls it cross-origin; set CORS_ORIGINS on
+# this service to the Firebase site (see docs/deployment.md).
+#
+# IMPORTANT — read the persistence note below before using this.
+services:
+  - type: web
+    name: quest-lite-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    region: oregon
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DATABASE_PATH
+        value: /data/quest-lite.sqlite
+      - key: UPLOAD_DIR
+        value: /data/uploads
+      # Exact origins allowed to call the API with credentials.
+      # A wildcard cannot be combined with credentialed cookies.
+      - key: CORS_ORIGINS
+        value: https://quest-lite.web.app
+      # Integrations stay in draft mode until real provider keys are supplied.
+      - key: COMMS_FORCE_TEST_MODE
+        value: "1"

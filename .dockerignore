@@ -1,0 +1,22 @@
+node_modules
+dist
+data
+.git
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-journal
+*.sqlite-shm
+*.sqlite-wal
+coverage
+docs
+web
+tests
+.firebase
+firebase.json
+.firebaserc
+# Credentials stay out of the image entirely — the API reads the JSON from
+# FIREBASE_SERVICE_ACCOUNT at runtime.
+firebase-service-account.json
+public
